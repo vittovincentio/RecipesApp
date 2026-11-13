@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RecipesApp.MainPage">
+
+    <VerticalStackLayout Padding="15" Spacing="10">
+
+        <Label Text="Мои рецепты"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+
+        <Button Text="Добавить"
+                Clicked="OnAddClicked"/>
+
+        <CollectionView x:Name="RecipesCollection"
+                        SelectionMode="Single"
+                        SelectionChanged="OnRecipeSelected">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="0,5" Padding="10" BorderColor="Gray" CornerRadius="8">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Name}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"/>
+                            <Label Text="{Binding Description}"
+                                   FontSize="14"
+                                   TextColor="Gray"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+
+</ContentPage>
